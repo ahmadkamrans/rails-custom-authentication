@@ -1,7 +1,7 @@
 class Users::RegistrationsController < ApplicationController
   view_accessor :resource
 
-  before_action :redirect_logged_in_user, only: [:create, :new]
+  before_action :redirect_logged_in_user, only: %i[create new]
   
   def new
     self.resource = User.new

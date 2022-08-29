@@ -1,7 +1,7 @@
 class Users::SessionsController < ApplicationController
   view_accessor :resource
 
-  before_action :redirect_logged_in_user, only: [:create, :new]
+  before_action :redirect_logged_in_user, only: %i[create new]
 
   before_action :authenticate_user!, only: [:destroy]
 
@@ -10,7 +10,7 @@ class Users::SessionsController < ApplicationController
   end
 
   def create
-    build_resource
+    get_resource
     if resource
       if resource.authenticate(sign_in_params[:password])
         login(resource)
@@ -32,7 +32,7 @@ class Users::SessionsController < ApplicationController
 
   private
 
-  def build_resource
+  def get_resource
     self.resource = User.find_by(email: sign_in_params[:email].downcase)
   end
 

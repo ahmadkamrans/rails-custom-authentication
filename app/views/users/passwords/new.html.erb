@@ -1,0 +1,5 @@
+<%= form_with model: User, url: passwords_path do |f| %>
+  <%= f.label :email, 'Enter email' %>
+  <%= f.email_field :email, required: true %>
+  <%= f.submit "Send Reset Password Instructions" %>
+<% end %>

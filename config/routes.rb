@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     post "login", to: "users/sessions#create"
 
     delete "logout", to: "users/sessions#destroy"
+
+    resources :passwords, only: [:create, :edit, :new, :update], param: :password_reset_token, module: 'users'
   end
 end
