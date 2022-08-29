@@ -1,0 +1,16 @@
+<%= form_for resource, url: sign_up_path do |form| %>
+  <%= render partial: "users/shared/form_errors", locals: { resource: form.object } %>
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email, required: true %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password, required: true %>
+  </div>
+  <div>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, required: true %>
+  </div>
+  <%= form.submit "Sign Up" %>
+<% end %>
