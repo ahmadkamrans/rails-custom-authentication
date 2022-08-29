@@ -40,3 +40,6 @@ Use postgress
 ### ENV variables
 Use .env file for local development
 
+### Test
+Run  `bin/rails test` for running tests
+Run  `bin/rails test:system` for running system tests
