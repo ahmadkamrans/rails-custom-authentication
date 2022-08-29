@@ -43,3 +43,5 @@ Use .env file for local development
 ### Test
 Run  `bin/rails test` for running tests
 Run  `bin/rails test:system` for running system tests
+
+Run `bin/rails test test/controllers` for running integration test

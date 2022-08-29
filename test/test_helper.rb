@@ -9,5 +9,11 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def current_user
+    if session[:current_user_id].present?
+      User.find_by(id: session[:current_user_id])
+    end
+  end
+
   # Add more helper methods to be used by all tests here...
 end
