@@ -10,7 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="margin: 100px;">
+    <% flash.each do |type, msg| %>
+      <div style="color: black; background: red; margin-bottom: 100px; font-size: 20px;">
+        <%= msg %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

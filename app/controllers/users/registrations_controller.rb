@@ -1,12 +1,14 @@
 class Users::RegistrationsController < ApplicationController
   view_accessor :resource
 
+  before_action :redirect_logged_in_user, only: [:create, :new]
+  
   def new
     self.resource = User.new
   end
 
   def create
-    build_resource(sign_up_params)
+    build_resource
     if resource.save
       redirect_to login_path, notice: "User created successfully. Please login to continue."
     else
@@ -17,7 +19,7 @@ class Users::RegistrationsController < ApplicationController
   private
 
   def build_resource
-    self.resource = User.new(user_params)
+    self.resource = User.new(sign_up_params)
   end
 
   def sign_up_params
