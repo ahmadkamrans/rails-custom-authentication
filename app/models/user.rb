@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true, uniqueness: true
 
   def generate_reset_token
-    signed_id expires_in: PASSWORD_RESET_TOKEN_TIME, purpose: :reset_password
+    signed_id expires_in: PASSWORD_RESET_TOKEN_TIME
   end
 
   def send_reset_password_instructions!
